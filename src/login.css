@@ -83,11 +83,15 @@ cursor: pointer;
     .container {
         flex-direction: column;
         margin: 20px;
+        flex-wrap: wrap;
     }
 
     .main1, .main2, .main3, .main4 {
         border-radius: 0; /* remove rounded edges for mobile */
         padding: 30px 20px;
+        display:flex;
+        flex-wrap: wrap;
+        width:50%;
     }
 
     button {
