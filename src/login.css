@@ -2,99 +2,118 @@
     margin:0;
     padding:0;
     font-family: sans-serif;
+    box-sizing: border-box;
 }
-.container
-{
-    background-color:plum;
+.container {
+    background-color: plum;
     border: 1px solid gray;
     margin: 50px auto;
-    width:80%;
-    display:flex;
-    position: relative;
+    width: 80%;
+    display: flex;
     overflow: hidden;
+    flex-wrap: wrap; /* allow wrapping on smaller screens */
 }
-.main1{
-    background-color:blueviolet;
+
+/* Right panels */
+.main2,
+.main4 {
+    background-color: plum;
     text-align: center;
-    width:40%;
-    border-radius: 0px 50px 50px 0px;
+    padding: 50px 30px;
+    line-height: 1.5;
+    flex: 1 1 60%; /* flexible width with min 60% */
     transition: 0.5s;
+    justify-content: center; /* horizontal centering */
+    align-items: center;     /* vertical centering */
+    flex-direction: column;  /* if you have multiple lines of text */
+    font-size: 20px;
+}
+/* Left panels */
+.main1,
+.main3 {
+    background-color: blueviolet;
     color: white;
-    padding: 170px 10px;
-    line-height: 30px;
-}
-.main2{
-    background-color:plum;
-    width:60%;
     text-align: center;
-    padding: 30px 50px;
-    transition: 0.1s;
-    line-height: 30px;
-}
-.main3{
-    background-color:blueviolet;
-    text-align: center;
-    width:40%;
-    border-radius: 50px 0px 0px 50px;
+    padding: 0; /* remove padding to use flex centering */
+    line-height: 1.5;
+    flex: 1 1 40%;
     transition: 0.5s;
-    color: white;
-    padding: 170px 10px;
-    line-height: 30px;
+    display: flex;
+    justify-content: center; /* horizontal centering */
+    align-items: center;     /* vertical centering */
+    flex-direction: column;  /* if you have multiple lines of text */
 }
-.main4{
-    background-color:plum;
-    width:60%;
-    text-align: center;
-    padding: 150px 80px;
-    transition: 0.1s;
-    line-height: 30px;
+/* Rounded corners for desktop */
+.main1 {
+    border-radius: 0 50px 50px 0;
 }
-.contentGrid{
-    display:grid;
+.main3 {
+    border-radius: 50px 0 0 50px;
 }
-.contentGrid input{
+
+/* Form inputs */
+.contentGrid {
+    display: grid;
+    gap: 10px;
+}
+
+.contentGrid input {
     height: 35px;
     background-color: white;
     border-radius: 15px;
     padding-left: 20px;
+    border: 1px solid #ccc;
+    transition: border-radius 0.3s;
 }
-.contentGrid input:hover{
+
+.contentGrid input:hover {
     border-radius: 25px;
 }
-button{
-    background-color:green;
+
+/* Buttons */
+button {
+    background-color: green;
     height: 35px;
     width: 100px;
     border-radius: 5px;
     margin-top: 10px;
     font-weight: bolder;
     color: white;
-}
-button:hover{
-background-color:darkgreen;
-cursor: pointer;
-}
-.header
-{
-    margin-bottom: 10px;
+    border: none;
+    transition: background-color 0.3s;
 }
 
+button:hover {
+    background-color: darkgreen;
+    cursor: pointer;
+}
+
+.header {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Responsive for tablets and mobile */
 @media (max-width: 900px) {
     .container {
         flex-direction: column;
-        margin: 20px;
-        flex-wrap: wrap;
+        width: 90%;
+        margin: 20px auto;
     }
 
     .main1, .main2, .main3, .main4 {
-        border-radius: 0; /* remove rounded edges for mobile */
+        flex: 1 1 100%;
         padding: 30px 20px;
-        display:flex;
-        flex-wrap: wrap;
-        width:50%;
+        border-radius: 0;
+        text-align: center;
     }
 
     button {
         width: 80%;
+        margin: 10px auto;
+    }
+
+    .header {
+        text-align: center;
     }
 }
